@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  namespace :admin do
+    get 'categories/index'
+    get 'categories/new'
+    get 'categories/show'
+    get 'categories/edit'
+  end
   get 'roles/create'
   get 'roles/edit'
   get 'roles/list'
