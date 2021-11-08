@@ -1,0 +1,39 @@
+<h3>Roles</h3>
+
+<div class="card">
+<div class="card-body">
+<h5 class="card-title">Index</h5>
+<%= link_to admin_new_role_path, class:"btn btn-primary text-white" do%>
+New <i class="bi bi-arrow-right-circle-fill"></i>
+<%end%>
+<table class="table table-hover">
+    <tr>
+        <th >ID</th>
+        <th class="text-center">Name</th>
+        <th class="text-end">Actions</th>
+    </tr>
+
+    <% @roles.each do |role| %>
+        <tr>
+            <td style="width:50px;"> <%= role.id %> </td>
+            <td class="text-center"> 
+            <%= link_to admin_role_path(role) do %>
+             <%= role.name %>
+            <%end%>
+            </td>
+            <td class="text-end">
+                <%= link_to admin_role_path(role), class: "btn btn-danger text-white", method: :delete, data: { confirm: 'Do you want to delete current record?'} do %>
+                <i class="bi bi-trash"></i> Delete
+            <% end %>
+            <%= link_to admin_edit_role_path(role), class: "btn btn-warning text-white" do %>
+            <i class="bi bi-pencil-square"></i> Edit
+            <%end%>
+            </td>
+        </tr>
+    <% end %>
+</table>
+<% if flash[:set_role_error] %>
+<%= flash[:set_role_error] %>
+</div>
+</div>
+<%end%>

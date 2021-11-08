@@ -1,6 +1,7 @@
 class Admin::CategoriesController < ApplicationController
-  
-  before_action :set_category, only: [:show, :edit, :update, :delete]
+  layout 'admin_layout'
+
+  before_action :set_category, only: [:show, :edit, :update, :destroy]
   
   def index
     @categories = Category.all
@@ -18,7 +19,7 @@ class Admin::CategoriesController < ApplicationController
 
   def create
     @category = Category.new(params_category)
-    if @category
+    if @category.save
       redirect_to admin_categories_path
     else
       render :new
@@ -34,7 +35,11 @@ class Admin::CategoriesController < ApplicationController
   end
 
   def destroy
-    @category.destroy
+    if @category.destroy
+      flash[:destroy] = "category #{@category.name} deleted"
+    else
+      flash[:destroy] = "could not be deleted"
+    end
     redirect_to admin_categories_path
   end
 
@@ -45,6 +50,9 @@ class Admin::CategoriesController < ApplicationController
 
   def set_category
     @category = Category.find(params[:id])
+  rescue
+    flash[:set_category_error] ="could not find the record #{params[:id]}"
+    redirect_to admin_categories_path
   end
 
 end
