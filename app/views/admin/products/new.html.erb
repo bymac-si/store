@@ -1,2 +1,5 @@
-<h1>Admin::Products#new</h1>
-<p>Find me in app/views/admin/products/new.html.erb</p>
+<h3>New Product</h3>
+
+<%= render 'form', base_product: @product %>
+<i class="fas fa-arrow-circle-left" ></i>
+<%= link_to 'back', admin_products_path, class:"btn btn-secondary text-white" %>

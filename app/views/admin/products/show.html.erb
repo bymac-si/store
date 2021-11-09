@@ -1,2 +1,8 @@
-<h1>Admin::Products#show</h1>
-<p>Find me in app/views/admin/products/show.html.erb</p>
+<h3>Show Product</h3>
+
+<h4>ID <%= @product.id %></h4>
+<h2>Product: <%= @product.name %></h2>
+<h3>Price: <%= @product.price %></h3>
+<h4>Description: <%= @product.description %></h4>
+<h4>Category: <%= @product.category.name %></h4>
+<%= link_to 'back', admin_categories_path, class:"btn btn-secondary" %>

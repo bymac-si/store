@@ -1,2 +1,5 @@
-<h1>Admin::Statuses#new</h1>
-<p>Find me in app/views/admin/statuses/new.html.erb</p>
+<h3>New Status</h3>
+
+<%= render 'form', base_status: @status %>
+<i class="fas fa-arrow-circle-left" ></i>
+<%= link_to 'back', admin_statuses_path, class:"btn btn-secondary text-white" %>

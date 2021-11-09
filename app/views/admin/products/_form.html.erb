@@ -1,0 +1,24 @@
+<div class="card mb-3">
+<div class="card-body">
+
+<%= form_with(model: [:admin, base_product]) do |form| %>
+   <div class="mb-3">
+    <%= form.label        :name, class:"form-label" %>
+    <%= form.text_field   :name, class:"form-control" %>
+     <%= form.label        :price, class:"form-label" %>
+    <%= form.number_field   :price, class:"form-control" %>
+     <%= form.label        :description, class:"form-label" %>
+    <%= form.text_field   :description, class:"form-control" %>
+     <%= form.label        :category_id, class:"form-label" %>
+    <%= form.number_field   :category_id, class:"form-control" %>
+    <% if base_product.errors[:name].any?%>
+    <div class="alert alert-danger" product="alert">
+        <%= base_product.errors[:name].first %>
+        </div>
+        <%end%>
+        </div>
+    <%= form.submit class: 'btn btn-primary text-white' %>
+<% end %>
+</div>
+</div>
+<br>

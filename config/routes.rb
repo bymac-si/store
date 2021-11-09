@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'pages/home'
+  
   namespace :admin do
 
    #categories 
@@ -39,13 +41,13 @@ Rails.application.routes.draw do
     #statuses
     get 'statuses',           to: 'statuses#index',     as: 'statuses'
     get 'statuses/new',       to: 'statuses#new',       as: 'new_status'
-    get 'statuses/:id',       to: 'status#show',        as: 'status'
+    get 'statuses/:id',       to: 'statuses#show',        as: 'status'
     get 'statuses/edit/:id',  to: 'statuses#edit',      as: 'edit_status'
   
-    post 'statuses',        to: 'statuses#create'
-    put  'statuses/:id',    to: 'statuses#update'
-    patch 'statuses/:id',   to: 'statuses#update'
-    delete 'statuses/:id',  to: 'statuses#destroy'  
+    post    'statuses',        to: 'statuses#create'
+    put     'statuses/:id',    to: 'statuses#update'
+    patch   'statuses/:id',   to: 'statuses#update'
+    delete  'statuses/:id',  to: 'statuses#destroy'  
   end
   
 end

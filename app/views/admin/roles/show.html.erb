@@ -1,2 +1,5 @@
-<h1>Admin::Roles#show</h1>
-<p>Find me in app/views/admin/roles/show.html.erb</p>
+<h3>Show Role</h3>
+
+<h4>ID <%= @role.id %></h4>
+<h1>Role: <%= @role.name %></h1>
+<%= link_to 'back', admin_roles_path, class:"btn btn-secondary" %>
