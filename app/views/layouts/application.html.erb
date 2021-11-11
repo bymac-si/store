@@ -13,6 +13,9 @@
   </head>
 
   <body>
-    <%= yield %>
+    <%= render "layouts/horizontal_menu" %>
+    <div class="container mt-5 pt-5">
+      <%= yield %>
+    </div>
   </body>
 </html>

@@ -1,0 +1,19 @@
+<!-- VARIABLES: base_product -->
+<div class="col">
+        <div class="card mb-4 rounded-3 shadow-sm">
+          <div class="card-header py-3">
+            <h4 class="my-0 fw-normal"><%= base_product.name %></h4>
+            <h6 class="text-muted">
+            <%= base_product.category.name %>
+        </h6>
+          </div>
+          <div class="card-body">
+            <h1 class="card-title pricing-card-title">$ <%= base_product.price %><small class="text-muted fw-light">CLP</small></h1>
+            <%= base_product.description %>
+            <%= link_to "#", class:'w-100 btn btn-lg btn-outline-success' , data: { confirm: 'Add to the cart?' } do %> 
+            <i class="bi bi-cart-plus"></i> Add to Cart
+            <%end%>
+          </div>
+        </div>
+      </div>
+           

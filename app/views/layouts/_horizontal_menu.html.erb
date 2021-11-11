@@ -1,0 +1,22 @@
+<div class="container">
+    <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom bg-secondary">
+      <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+        <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
+        <span class="fs-4"><i class="bi bi-shop"></i> byMAC Store</span>
+      </a>
+
+      <ul class="nav nav-pills">
+        <li class="nav-item"><a href="#" class="nav-link text-white"><i class="bi bi-house"></i> Home</a></li>
+        <li class="nav-item"><a href="#" class="nav-link text-white"><i class="bi bi-boxes"></i> Products</a></li>
+        <li class="nav-item"><a href="#" class="nav-link text-white"><i class="bi bi-person"></i> User</a></li>
+        <li class="nav-item"><a href="#" class="nav-link text-white"><i class="bi bi-info-circle"></i> About</a></li>
+      </ul>
+      <span class="badge bg-light rounded-pill bg-secondary text-secondary position-relative">
+  <h5> <i class="bi bi-cart4"></i> cart </h5>
+  <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+    <%= @cart.cart_products.count %>
+    <span class="visually-hidden">Products in cart</span>
+  </span>
+</span>
+    </header>
+  </div>

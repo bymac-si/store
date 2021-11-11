@@ -1,5 +1,8 @@
 class PagesController < ApplicationController
+ include PagesHelper
+ 
   def home
+    print_icon
    #1 preguntar si esxiste la cookie cart_id
     #si existe buscar la cookie cart_id 
     #definir variable @cart
@@ -11,5 +14,6 @@ class PagesController < ApplicationController
     @cart = Cart.create(total: 0)
     cookies[:cart_id] = @cart.id
   end
+  @products = Product.includes(:category).shuffle
 end
 end
