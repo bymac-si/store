@@ -12,10 +12,11 @@
         <li class="nav-item"><a href="#" class="nav-link text-white"><i class="bi bi-info-circle"></i> About</a></li>
       </ul>
       <span class="badge bg-light rounded-pill bg-secondary text-secondary position-relative">
-  <h5> <i class="bi bi-cart4"></i> cart </h5>
+  <h5><%= link_to "#" do %> <i class="bi bi-cart4"></i> cart </h5>
   <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
     <%= @cart.cart_products.count %>
     <span class="visually-hidden">Products in cart</span>
+    <%end%>
   </span>
 </span>
     </header>
