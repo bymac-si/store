@@ -29,6 +29,8 @@ development:
   <<: *default
   database: store_development
 
+  
+
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
   # When left blank, postgres will use the default role. This is
@@ -84,7 +86,7 @@ test:
 # for a full overview on how database connection configuration can be specified.
 #
 production:
-  <<: *default
-  database: store_production
-  username: store
-  password: <%= ENV['STORE_DATABASE_PASSWORD'] %>
+        <<: *default
+        database: store # CAMBIAR EL NOMBRE DE LA BASE DE DATOS 🚥
+        username: <%= Rails.application.credentials.db_production[:username] %>
+        password: <%= Rails.application.credentials.db_production[:password] %>
