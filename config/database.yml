@@ -86,7 +86,7 @@ test:
 # for a full overview on how database connection configuration can be specified.
 #
 production:
-        <<: *default
-        database: store # CAMBIAR EL NOMBRE DE LA BASE DE DATOS 🚥
-        username: <%= Rails.application.credentials.db_production[:username] %>
-        password: <%= Rails.application.credentials.db_production[:password] %>
+  <<: *default
+  database: store 
+  username: <%= Rails.application.credentials.db_production[:username] %>
+  password: <%= Rails.application.credentials.db_production[:password] %>
