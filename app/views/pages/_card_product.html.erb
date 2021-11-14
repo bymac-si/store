@@ -2,6 +2,7 @@
 <div class="col">
         <div class="card mb-4 rounded-3 shadow-sm">
           <div class="card-header py-3">
+          <%= image_tag "#{base_product.id}.jpg", class:"rounded img-thumbnail" %>
             <h4 class="my-0 fw-normal"><%= base_product.name %></h4>
             <h6 class="text-muted">
             <%= base_product.category.name %>
