@@ -1,2 +1,10 @@
 <h1>Cart#show</h1>
-<p>Find me in app/views/cart/show.html.erb</p>
+<!--Shopping Cart # <%= @cart.id %>-->
+<table>
+<tr><th>Product Name</th><th>Product Price</th><th>Quantity</tr>
+<% @cart.cart_products.each do |cp|%>
+<tr><td><%= cp.product.name %></td><td><%= cp.product.price %></td><td><%=cp.quantity%></td></tr>
+
+<%end%> 
+<tr class="badge bg-success text-white"><td colspan=""><h4>Your Total: <%= @cart.cart_products.map{|cp| cp.quantity * cp.product.price}.sum %> CLP</h4></td></tr>
+</table>
