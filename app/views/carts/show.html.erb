@@ -1,10 +1,23 @@
-<h1> Cart Shopping Cart </h1>
-
+<h1> Shopping Cart <%= @cart.id %> </h1>
+<div class="row">
+<div class="col"></div>
+<div class="col"></div>
+   
+</div>
 <table>
-<tr><th>Product Name</th><th>Product Price</th><th>Quantity</tr>
-<% @cart.cart_products.each do |cp|%>
-<tr><td><%= cp.product.name %></td><td><%= cp.product.price %></td><td><%=cp.quantity%></td></tr>
-
-<%end%> 
-<tr class="badge bg-success text-white"><td colspan=""><h4>Your Total: <%= @cart.cart_products.map{|cp| cp.quantity * cp.product.price}.sum %> CLP</h4></td></tr>
+<tr><th></th>
+<th>Product Name</th>
+<th>Product Price</th>
+<th>Quantity</tr>
+<% @cart.cart_products.each do |cp| %>
+<tr>
+<td><%= image_tag "#{cp.product.id}.jpg", class:"rounded card-img-top shadow-sm", style:"max-width:4rem;" %></td>
+<td><%= cp.product.name %></td>
+<td><%= cp.product.price %></td>
+<td><%= cp.quantity%></td></tr>
+<% end %>
+<tr>
+<td colspan="4"><h4 class="badge bg-success text-white">Your Total: $ <%= @cart.total %> CLP</h4>
+</td>
+</tr>
 </table>
