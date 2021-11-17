@@ -36,7 +36,7 @@
                         <b>Total: </b>
                     </div>
                     <div class="col">
-                        <h5>$ <%= number_with_delimiter(@cart.total, :delimiter => '.') %> CLP</h5>
+                        <h5><%= number_to_currency(@cart.total, unit: 'CLP $ ', precision: 0, delimiter: '.') %></h5>
                     </div>
                 </div>
             </div>
