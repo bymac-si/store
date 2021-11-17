@@ -1,23 +1,33 @@
-<h1> Shopping Cart <%= @cart.id %> </h1>
+
 <div class="row">
-<div class="col"></div>
-<div class="col"></div>
-   
+<div class="col">
+<div class="card mb-3">
+    <div class="card-body">
+    <h4><b> Shopping Cart (<%= @cart.products.count %>)</b></h4>
+    </div>
 </div>
-<table>
-<tr><th></th>
-<th>Product Name</th>
-<th>Product Price</th>
-<th>Quantity</tr>
 <% @cart.cart_products.each do |cp| %>
-<tr>
-<td><%= image_tag "#{cp.product.id}.jpg", class:"rounded card-img-top shadow-sm", style:"max-width:4rem;" %></td>
-<td><%= cp.product.name %></td>
-<td><%= cp.product.price %></td>
-<td><%= cp.quantity%></td></tr>
-<% end %>
-<tr>
-<td colspan="4"><h4 class="badge bg-success text-white">Your Total: $ <%= @cart.total %> CLP</h4>
-</td>
-</tr>
-</table>
+            <div class="card mb-3">
+            <div class="row g-0">
+                <div class="col-md-3">
+                <%= image_tag "#{@cart.id}.jpg", class:"img-fluid rounded-start" %></div>
+                <div class="col-md-7">
+                <div class="card-body">
+                    <h4 class="card-title"> <%= cp.product.name %> </h4>
+                    <h6 class="text-muted"> <%= cp.product.category.name %> </h6>
+                    <p class="card-text"> <%= cp.product.description %> </p>
+                </div>
+                </div>
+                </div>
+            </div>
+        <% end %>
+</div>
+<div class="col"><div class="card">
+<div class="card-body">
+<h4><b>Cart Sumary</b></h4>
+<h5><%= @cart.total %></h5>
+</div>
+</div>
+</div>
+</div>
+

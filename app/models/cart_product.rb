@@ -2,6 +2,8 @@ class CartProduct < ApplicationRecord
   belongs_to :cart
   belongs_to :product
 
+  after_save :calculate_total
+
   validates :cart_id, presence: true
   validates :product_id, presence: true
   validates :quantity, presence: true, numericality: true
@@ -14,7 +16,6 @@ class CartProduct < ApplicationRecord
     end
     self.cart.total = total
     self.cart.save
-    
   end
   
 end
