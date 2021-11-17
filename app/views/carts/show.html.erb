@@ -36,7 +36,7 @@
                         <b>Total: </b>
                     </div>
                     <div class="col">
-                        <h5>$ <%= @cart.total %> CLP</h5>
+                        <h5>$ <%= number_with_delimiter(@cart.total, :delimiter => '.') %> CLP</h5>
                     </div>
                 </div>
             </div>
