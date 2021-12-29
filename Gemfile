@@ -63,4 +63,3 @@ gem 'capistrano-rbenv', '~> 2.1', '>= 2.1.4'
 
 gem 'erb_lint', require: false
 
-gem 'serviceworker-rails'

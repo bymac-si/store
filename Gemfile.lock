@@ -224,8 +224,6 @@ GEM
       sprockets-rails
       tilt
     semantic_range (3.0.0)
-    serviceworker-rails (0.6.0)
-      railties (>= 3.1)
     smart_properties (1.16.3)
     spring (3.0.0)
     sprockets (4.0.2)
@@ -285,7 +283,6 @@ DEPENDENCIES
   rails (~> 6.1.4, >= 6.1.4.1)
   rspec-rails (~> 5.0.0)
   sass-rails (>= 6)
-  serviceworker-rails
   spring
   turbolinks (~> 5)
   tzinfo-data

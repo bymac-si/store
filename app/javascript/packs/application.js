@@ -11,7 +11,7 @@ import "channels"
 import 'bootstrap'
 import 'css/main'
 
-import '../../assets/javascripts/serviceworker-companion.js';	
+
 
 Rails.start()
 Turbolinks.start()
