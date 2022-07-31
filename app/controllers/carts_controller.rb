@@ -12,7 +12,7 @@ class CartsController < ApplicationController
     cart_product.product_id = params[:id_product]
     cart_product.quantity = 1
     cart_product.save
-    flash[:cart_product_created] = "Product added"
+    flash[:cart_product_created] = "Producto agregado"
     redirect_to root_path
   end
   

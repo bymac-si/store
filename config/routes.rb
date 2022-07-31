@@ -1,13 +1,11 @@
 Rails.application.routes.draw do
-
-  get 'carts/show'
-
   root 'pages#home'
-
-  get '/cart',   to: 'carts#show', as: 'cart'
   
+   #cart
 
-  post '/carts/:id_product', to: 'carts#add_product', as: 'add_product_to_cart'
+    get 'carts/show', to: 'carts#show'
+    get '/cart',   to: 'carts#show', as: 'cart'
+    post '/carts/:id_product', to: 'carts#add_product', as: 'add_product_to_cart'
 
   namespace :admin do
 

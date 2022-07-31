@@ -1,18 +1,18 @@
 <div class="container">
-    <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom bg-secondary">
-      <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+    <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom bg-light">
+      <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-decoration-none">
         <svg class="bi me-2" width="40" height="32"></svg>
-        <span class="fs-4"><%= image_tag("bymac.png") %> </span>
+        <span class="fs-4" ><%= image_tag("santa-josefina-logo-2.png", height:"100") %> </span>
       </a>
 
       <ul class="nav nav-pills">
-        <li class="nav-item"><a href="/" class="nav-link text-white"><i class="bi bi-house"></i> Home</a></li>
-        <%= link_to admin_products_path, class:"nav-link text-white" do %>
+        <li class="nav-item"><a href="/" class="nav-link text-dark"><i class="bi bi-house"></i> Home</a></li>
+        <%= link_to admin_products_path, class:"nav-link text-dark" do %>
         <i class="bi bi-boxes"></i> Products</a></li><% end %>
-        <li class="nav-item"><a href="#" class="nav-link text-white"><i class="bi bi-person"></i> User</a></li>
-        <li class="nav-item"><a href="#" class="nav-link text-white"><i class="bi bi-info-circle"></i> About</a></li>
+        <li class="nav-item"><a href="#" class="nav-link text-dark"><i class="bi bi-person"></i> User</a></li>
+        <li class="nav-item"><a href="#" class="nav-link text-dark"><i class="bi bi-info-circle"></i> About</a></li>
       </ul>
-      <span class="badge bg-light rounded-pill bg-secondary text-secondary position-relative">
+      <span class="badge bg-light rounded-pill bg-secondary text-dark position-relative">
   <h5><%= link_to cart_path do %> <i class="bi bi-cart4"></i> cart </h5>
   <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
     <%= @cart.cart_products.count %>
