@@ -15,9 +15,16 @@
                             <% end %>
                         </div>
                         <div class="col-9">
-                            <h4> <%= cp.product.name %> </h4>
+                            <h> <%= cp.product.name %> </h4>
                             <h6 class="text-muted"> <%= cp.product.category.name %> </h6>
                             <p> <%= cp.product.description %> </p>
+                        </div>
+                    </div>
+                    <div class="row justify-content-end">
+                        <div class="col">
+                            <%= link_to "-", "#", class: 'btn-cart-action' %>
+                            <span class="fs-5"><%= cp.quantity %></span>
+                            <%= link_to "+", "#", class: 'btn-cart-action' %>
                         </div>
                     </div>
                 </div>
@@ -36,7 +43,7 @@
                         <b>Total: </b>
                     </div>
                     <div class="col">
-                        <h5><%= number_to_currency(@cart.total, unit: 'CLP $ ', precision: 0, delimiter: '.') %></h5>
+                        <h5><%= @cart.total %> CLP</h5>
                     </div>
                 </div>
             </div>

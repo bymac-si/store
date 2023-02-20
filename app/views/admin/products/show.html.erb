@@ -5,4 +5,8 @@
 <h3>Price: <%= @product.price %></h3>
 <h4>Description: <%= @product.description %></h4>
 <h4>Category: <%= @product.category.name %></h4>
-<%= link_to 'back', admin_categories_path, class:"btn btn-secondary" %>
+<% if @product.main_photo.attached? %>
+          <%= image_tag @product.main_photo, class:"rounded card-img-top shadow-sm", style:"max-height:10rem; max-width:10rem;" %>
+            <% end %>
+            <br><br>
+<%= link_to 'back', admin_products_path, class:"btn btn-secondary" %>

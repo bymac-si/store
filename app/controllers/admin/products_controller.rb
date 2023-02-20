@@ -1,20 +1,22 @@
 class Admin::ProductsController < ApplicationController
-  layout 'admin_layout'
-
+  layout "admin_layout"  
   before_action :set_product, only: [:show, :edit, :update, :destroy]
-
+  
   def index
-      @products = Product.includes(:category)
+    #@products = Product.all # problema n+1
+    @products = Product.includes(:category)
   end
-
+  
   def new
     @product = Product.new
+    set_categories
   end
 
   def show
   end
 
   def edit
+    set_categories
   end
 
   def create
@@ -22,6 +24,7 @@ class Admin::ProductsController < ApplicationController
     if @product.save
       redirect_to admin_products_path
     else
+      set_categories
       render :new
     end
   end
@@ -30,28 +33,31 @@ class Admin::ProductsController < ApplicationController
     if @product.update(params_product)
       redirect_to admin_products_path
     else
+      set_categories
       render :edit
     end
   end
 
   def destroy
-    if @product.destroy
-      flash[:destroy] = "product #{@product.name} deleted"
-    else
-      flash[:destroy] = "could not be deleted"
-    end
+    @product.destroy
     redirect_to admin_products_path
+
   end
 
   private
-  def params_product
-    params.require(:product).permit(:name, :price, :description, :category_id, :main_photo, detail_photo: [])
-  end
-
   def set_product
     @product = Product.find(params[:id])
   rescue
-    flash[:set_product_error] ="could not find the record #{params[:id]}"
+    flash[:set_product_error] = "Could not find the record #{params[:id]}"
     redirect_to admin_products_path
   end
+
+  def params_product
+    params.require(:product).permit(:name, :price, :description, :category_id, :main_photo, detail_photos: [])
+  end
+
+  def set_categories
+    @categories = Category.all
+  end
+
 end

@@ -3,7 +3,6 @@ class User < ApplicationRecord
 
   belongs_to :role
   has_many :orders
-  
 
   validates :username, presence: true, uniqueness: true
   validates :role_id, presence: true

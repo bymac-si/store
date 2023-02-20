@@ -1,6 +1,6 @@
 class Admin::CategoriesController < ApplicationController
+  
   layout 'admin_layout'
-
   before_action :set_category, only: [:show, :edit, :update, :destroy]
   
   def index
@@ -35,11 +35,7 @@ class Admin::CategoriesController < ApplicationController
   end
 
   def destroy
-    if @category.destroy
-      flash[:destroy] = "category #{@category.name} deleted"
-    else
-      flash[:destroy] = "could not be deleted"
-    end
+    @category.destroy
     redirect_to admin_categories_path
   end
 
@@ -51,9 +47,9 @@ class Admin::CategoriesController < ApplicationController
   def set_category
     @category = Category.find(params[:id])
   rescue
-    flash[:set_category_error] ="could not find the record #{params[:id]}"
+    # el flash es como el mensajero de rails
+    flash[:set_category_error] = "Could not find the record #{params[:id]}"
     redirect_to admin_categories_path
   end
 
 end
-

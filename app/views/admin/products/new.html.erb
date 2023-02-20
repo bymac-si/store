@@ -1,5 +1,5 @@
 <h3>New Product</h3>
 
-<%= render 'form', base_product: @product %>
+<%= render 'form', base_product: @product, categories: @categories %>
 <i class="fas fa-arrow-circle-left" ></i>
 <%= link_to 'back', admin_products_path, class:"btn btn-secondary text-white" %>

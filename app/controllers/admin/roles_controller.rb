@@ -1,22 +1,26 @@
 class Admin::RolesController < ApplicationController
+
   layout 'admin_layout'
-
   before_action :set_role, only: [:show, :edit, :update, :destroy]
-
+  # GET /roles
   def index
-      @roles = Role.all
+    @roles = Role.all
   end
 
+  # GET /roles/:id
+  def show
+  end
+
+  # GET /roles/new
   def new
     @role = Role.new
   end
 
-  def show
-  end
-
+  # GET /roles/:id/edit
   def edit
   end
 
+  # POST /roles
   def create
     @role = Role.new(params_role)
     if @role.save
@@ -26,6 +30,7 @@ class Admin::RolesController < ApplicationController
     end
   end
 
+  # PUT/PATCH /roles/:id
   def update
     if @role.update(params_role)
       redirect_to admin_roles_path
@@ -34,24 +39,21 @@ class Admin::RolesController < ApplicationController
     end
   end
 
+  # DELETE /roles/:id
   def destroy
-    if @role.destroy
-      flash[:destroy] = "role #{@role.name} deleted"
-    else
-      flash[:destroy] = "could not be deleted"
-    end
+    @role.destroy
     redirect_to admin_roles_path
   end
-
+  
   private
-  def params_role
-    params.require(:role).permit(:name)
-  end
-
   def set_role
     @role = Role.find(params[:id])
   rescue
-    flash[:set_role_error] ="could not find the record #{params[:id]}"
+    flash[:set_role_error] = "Could not find the record #{params[:id]}"
     redirect_to admin_roles_path
+  end
+
+  def params_role
+    params.require(:role).permit(:name)
   end
 end

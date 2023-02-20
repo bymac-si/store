@@ -1,39 +1,36 @@
 <h3>Products</h3>
 
 <div class="card">
-<div class="card-body">
-<h5 class="card-title">Index</h5>
-<%= link_to admin_new_product_path, class:"btn btn-primary text-white" do%>
-New <i class="bi bi-arrow-right-circle-fill"></i>
-<%end%>
-<table class="table table-hover">
-    <tr>
-        <th >ID</th>
-        <th class="text-center">Name</th>
-        <th class="text-end">Actions</th>
-    </tr>
+    <div class="card-body">
+        <h5> Index </h5>
+        <%= link_to "New", admin_new_product_path, class: 'btn btn-primary' %>
 
-    <% @products.each do |product| %>
-        <tr>
-            <td style="width:50px;"> <%= product.id %> </td>
-            <td class="text-center"> 
-            <%= link_to admin_product_path(product) do %>
-             <%= product.name %>
-            <%end%>
-            </td>
-            <td class="text-end">
-                <%= link_to admin_product_path(product), class: "btn btn-danger text-white", method: :delete, data: { confirm: 'Do you want to delete current record?'} do %>
-                <i class="bi bi-trash"></i> Delete
+        <% if flash[:set_product_error] %>
+            <%= flash[:set_product_error] %>
+        <% end %>
+
+        <table class="table table-hover">
+            <tr>
+                <th> Name </th>
+                <th> Price </th>
+                <th> Description </th>
+                <th> Category </th>
+                <th> Action </th>
+            </tr>
+            <% @products.each do |p| %>
+                <tr>
+                    <td> <%= link_to admin_product_path(p) do %>
+                        <%= p.name %>
+                       <%end%></td>
+                    <td> <%= number_to_currency(p.price,  unit: 'CLP $ ', delimiter: '.', precision: 0) %> </td>
+                    <td> <%= p.description  %> </td>
+                    <td> <%= p.category.name  %> </td>
+                    <td>
+                        <%= link_to "Edit", admin_edit_product_path(p), class: 'btn btn-warning'  %>
+                        <%= link_to "Delete", admin_product_path(p), class: 'btn btn-warning', method: :delete, data: { confirm: "Are you sure?" }  %>
+                    </td>
+                </tr>
             <% end %>
-            <%= link_to admin_edit_product_path(product), class: "btn btn-warning text-white" do %>
-            <i class="bi bi-pencil-square"></i> Edit
-            <%end%>
-            </td>
-        </tr>
-    <% end %>
-</table>
-<% if flash[:set_product_error] %>
-<%= flash[:set_product_error] %>
+        </table>
+    </div>
 </div>
-</div>
-<%end%>
